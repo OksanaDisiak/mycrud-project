@@ -8,6 +8,9 @@ class Driver(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
+    def __str__(self):
+        return self.id
+
 
 class Vehicle(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
@@ -17,6 +20,9 @@ class Vehicle(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     driver_id = models.ForeignKey(Driver, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.id
 
 
 
